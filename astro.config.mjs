@@ -8,7 +8,7 @@ import rehypeKatex from 'rehype-katex';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://my-cosmos-nine.vercel.app',
+  site: 'https://welcome-my-cosmos.vercel.app',
   integrations: [mdx(), sitemap()],
   markdown: {
     remarkPlugins: [remarkMath],
