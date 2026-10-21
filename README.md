@@ -38,6 +38,17 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+## 우주 지도 데이터 갱신
+
+글을 추가하거나 수정하면 지도 데이터(`src/data/cosmos.json`)를 다시 만들고 함께 커밋한다.
+
+```sh
+uv run -p 3.12 --with-requirements scripts/cosmos/requirements.txt scripts/cosmos/build.py
+```
+
+- 처음 실행할 때 임베딩 모델(BAAI/bge-m3, 약 2GB)을 내려받는다.
+- 인용 링크의 제목은 `scripts/cosmos/satellite-titles.json`에 캐시된다.
+
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

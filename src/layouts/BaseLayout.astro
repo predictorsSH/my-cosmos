@@ -4,9 +4,11 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  /** 헤더와 본문 폭 제한 없이 화면 전체를 쓰는 페이지 (메인 지도) */
+  bare?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, bare = false } = Astro.props;
 const siteName = 'my-cosmos';
 const pageTitle = title === siteName ? title : `${title} | ${siteName}`;
 ---
@@ -26,11 +28,19 @@ const pageTitle = title === siteName ? title : `${title} | ${siteName}`;
     {description && <meta name="description" content={description} />}
   </head>
   <body>
-    <header class="site-header">
-      <a href="/" class="site-name">{siteName}</a>
-    </header>
-    <main>
-      <slot />
-    </main>
+    {
+      bare ? (
+        <slot />
+      ) : (
+        <>
+          <header class="site-header">
+            <a href="/" class="site-name">{siteName}</a>
+          </header>
+          <main>
+            <slot />
+          </main>
+        </>
+      )
+    }
   </body>
 </html>
