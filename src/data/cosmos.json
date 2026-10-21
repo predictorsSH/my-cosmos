@@ -1,0 +1,1415 @@
+{
+ "stars": [
+  {
+   "id": "book-post-1",
+   "title": "하얼빈",
+   "category": "Book",
+   "excerpt": "이토의 목숨을 제거하지 않고서, 그것이 세상을 헝끌어뜨리는 작동만을 멈추게 할 수는 없을 것이었다.",
+   "length": 2532,
+   "neighbors": [
+    {
+     "id": "book-post-4",
+     "sim": 0.502
+    },
+    {
+     "id": "book-post-3",
+     "sim": 0.466
+    },
+    {
+     "id": "book-post-5",
+     "sim": 0.46
+    }
+   ],
+   "cluster": 3
+  },
+  {
+   "id": "book-post-2",
+   "title": "유시민의 글쓰기 특강",
+   "category": "Book",
+   "excerpt": "좋은 글을 쓰려면 먼저 생각을 바르고 정확하게 할 수 있어야 한다.",
+   "length": 3282,
+   "neighbors": [
+    {
+     "id": "book-post-3",
+     "sim": 0.635
+    },
+    {
+     "id": "book-post-5",
+     "sim": 0.526
+    },
+    {
+     "id": "life-post-goodbye-2023",
+     "sim": 0.488
+    }
+   ],
+   "cluster": 3
+  },
+  {
+   "id": "book-post-3",
+   "title": "읽었다는 착각",
+   "category": "Book",
+   "excerpt": "2026년은 더 잘 읽는 한 해가 되었으면 하는 바람이 이 책 덕분에 생겼다.",
+   "length": 4622,
+   "neighbors": [
+    {
+     "id": "life-post-goodbye-2023",
+     "sim": 0.652
+    },
+    {
+     "id": "book-post-2",
+     "sim": 0.635
+    },
+    {
+     "id": "book-post-5",
+     "sim": 0.611
+    }
+   ],
+   "cluster": 3
+  },
+  {
+   "id": "book-post-4",
+   "title": "싯다르타",
+   "category": "Book",
+   "excerpt": "진리는 가르칠 수 없다.",
+   "length": 3669,
+   "neighbors": [
+    {
+     "id": "book-post-3",
+     "sim": 0.551
+    },
+    {
+     "id": "book-post-5",
+     "sim": 0.519
+    },
+    {
+     "id": "book-post-1",
+     "sim": 0.502
+    }
+   ],
+   "cluster": 3
+  },
+  {
+   "id": "book-post-5",
+   "title": "나라는 착각",
+   "category": "Book",
+   "excerpt": "자아는 뇌의 발명품이다.",
+   "length": 4651,
+   "neighbors": [
+    {
+     "id": "book-post-3",
+     "sim": 0.611
+    },
+    {
+     "id": "book-post-2",
+     "sim": 0.526
+    },
+    {
+     "id": "book-post-4",
+     "sim": 0.519
+    }
+   ],
+   "cluster": 3
+  },
+  {
+   "id": "datascience-post-VAE",
+   "title": "VAE의 Loss Function",
+   "category": "DataScience",
+   "excerpt": "VAE를 공부하고 정리했습니다.",
+   "length": 5959,
+   "neighbors": [
+    {
+     "id": "datascience-post-gradcam",
+     "sim": 0.587
+    },
+    {
+     "id": "datascience-psot-transformer-positional-encoding",
+     "sim": 0.58
+    },
+    {
+     "id": "datascience-post-time-series-anomaly-detection-ae",
+     "sim": 0.565
+    }
+   ],
+   "cluster": 0
+  },
+  {
+   "id": "datascience-post-adp-1",
+   "title": "ADP-Statistics-기초통계량-1",
+   "category": "DataScience",
+   "excerpt": "데이터 분석의 첫번째 단계는 기초통계량을 살펴보는 것이다. 먼저 어떤 통계량들이 있는지 확인하고, 실제 데이터에서 기초 통계량을 도출하고 시각화 해보자.",
+   "length": 9712,
+   "neighbors": [
+    {
+     "id": "datascience-post-adp-2",
+     "sim": 0.814
+    },
+    {
+     "id": "datascience-post-adp-4",
+     "sim": 0.657
+    },
+    {
+     "id": "datascience-post-adp-3",
+     "sim": 0.646
+    }
+   ],
+   "cluster": 1
+  },
+  {
+   "id": "datascience-post-adp-2",
+   "title": "ADP-Statistics-기초통계량-2",
+   "category": "DataScience",
+   "excerpt": "데이터 분석의 첫번째 지점은 기초통계량을 살펴보는 것이다. 먼저, 어떤 통계량들이 있는지 확인하고, 데이터에서 기초 통계량을 구하고 시각화 해보자.",
+   "length": 4317,
+   "neighbors": [
+    {
+     "id": "datascience-post-adp-1",
+     "sim": 0.814
+    },
+    {
+     "id": "datascience-post-adp-4",
+     "sim": 0.646
+    },
+    {
+     "id": "datascience-post-adp-3",
+     "sim": 0.635
+    }
+   ],
+   "cluster": 1
+  },
+  {
+   "id": "datascience-post-adp-3",
+   "title": "ADP-Statistics-상관분석",
+   "category": "DataScience",
+   "excerpt": "상관분석은 두 변수 사이에 어떠한 관계가 있는지 분석하는 것이다. 특히, 상관계수를 이용하여 두 변수사이의 선형관계 정도를 측정한다.",
+   "length": 4341,
+   "neighbors": [
+    {
+     "id": "datascience-post-adp-4",
+     "sim": 0.784
+    },
+    {
+     "id": "datascience-post-adp-5",
+     "sim": 0.726
+    },
+    {
+     "id": "datascience-post-regression-corr",
+     "sim": 0.68
+    }
+   ],
+   "cluster": 1
+  },
+  {
+   "id": "datascience-post-adp-4",
+   "title": "ADP-Statistics-가설검정",
+   "category": "DataScience",
+   "excerpt": "가설검정이란 확률적 표본 분포의 성질을 이용해서 가설이 참인지 거짓인지 가리는 것이다. 이때 가설은 모집단의 특성에 관한 진술이다.",
+   "length": 4092,
+   "neighbors": [
+    {
+     "id": "datascience-post-adp-3",
+     "sim": 0.784
+    },
+    {
+     "id": "datascience-post-adp-5",
+     "sim": 0.666
+    },
+    {
+     "id": "datascience-post-adp-1",
+     "sim": 0.657
+    }
+   ],
+   "cluster": 1
+  },
+  {
+   "id": "datascience-post-adp-5",
+   "title": "ADP-linear-regression",
+   "category": "DataScience",
+   "excerpt": "선형회귀 모델은, 종속변수 y와 하나 이상의 독립변수(설명변수) X와의 선형관계를 표현하는 모델이다. 선형회귀 모델을 만들어서, 종속변수와 독립변수사이의 선형관계를 분석하는 것을 선형회귀 분석이라고 한다.",
+   "length": 3066,
+   "neighbors": [
+    {
+     "id": "datascience-post-adp-3",
+     "sim": 0.726
+    },
+    {
+     "id": "datascience-post-adp-4",
+     "sim": 0.666
+    },
+    {
+     "id": "datascience-post-regression-corr",
+     "sim": 0.643
+    }
+   ],
+   "cluster": 1
+  },
+  {
+   "id": "datascience-post-an-introduce-to-roc",
+   "title": "An introduction to ROC analysis",
+   "category": "DataScience",
+   "excerpt": "ROC analysis 논문 리뷰",
+   "length": 9773,
+   "neighbors": [
+    {
+     "id": "datascience-post-patchcore",
+     "sim": 0.586
+    },
+    {
+     "id": "datascience-post-crossentropy",
+     "sim": 0.578
+    },
+    {
+     "id": "datascience-post-adp-5",
+     "sim": 0.567
+    }
+   ],
+   "cluster": 4
+  },
+  {
+   "id": "datascience-post-an-overview-of-gradient-descent-optimization-algorithms",
+   "title": "An overview of gradient descent optimization algorithms",
+   "category": "DataScience",
+   "excerpt": "다양한 경사하강법 최적화 알고리즘들을 **직관적**으로 이해",
+   "length": 9521,
+   "neighbors": [
+    {
+     "id": "datascience-post-vectorization",
+     "sim": 0.607
+    },
+    {
+     "id": "datascience-post-gradcam",
+     "sim": 0.57
+    },
+    {
+     "id": "datascience-post-VAE",
+     "sim": 0.55
+    }
+   ],
+   "cluster": 0
+  },
+  {
+   "id": "datascience-post-better-code-1",
+   "title": "(python basic) 목록을 만들어 순회하기 vs 바로 처리하기",
+   "category": "DataScience",
+   "excerpt": "파이썬에서 흔히 볼 수 있는 데이터 처리 패턴은 두가지 이다.",
+   "length": 1243,
+   "neighbors": [
+    {
+     "id": "datascience-post-better-code-2",
+     "sim": 0.63
+    },
+    {
+     "id": "datascience-post-vectorization",
+     "sim": 0.543
+    },
+    {
+     "id": "datascience-post-recurrent",
+     "sim": 0.514
+    }
+   ],
+   "cluster": 2
+  },
+  {
+   "id": "datascience-post-better-code-2",
+   "title": "(python basic) dict.keys() VS dict.items()",
+   "category": "DataScience",
+   "excerpt": "딕셔너리 순환에 대해서",
+   "length": 1114,
+   "neighbors": [
+    {
+     "id": "datascience-post-better-code-1",
+     "sim": 0.63
+    },
+    {
+     "id": "datascience-post-recurrent",
+     "sim": 0.539
+    },
+    {
+     "id": "datascience-post-bigquery",
+     "sim": 0.528
+    }
+   ],
+   "cluster": 2
+  },
+  {
+   "id": "datascience-post-bigquery",
+   "title": "BigQuery 쿼리 필수 요소",
+   "category": "DataScience",
+   "excerpt": "도서 구글 빅쿼리 완벽 가이드 스터디",
+   "length": 9597,
+   "neighbors": [
+    {
+     "id": "datascience-post-cicd",
+     "sim": 0.557
+    },
+    {
+     "id": "datascience-post-vectorization",
+     "sim": 0.533
+    },
+    {
+     "id": "datascience-post-better-code-2",
+     "sim": 0.528
+    }
+   ],
+   "cluster": 2
+  },
+  {
+   "id": "datascience-post-cicd",
+   "title": "간단한 CI 파이프라인 실습",
+   "category": "DataScience",
+   "excerpt": "TeamCity로 Continuous Integration 파이프라인 실습",
+   "length": 6138,
+   "neighbors": [
+    {
+     "id": "datascience-post-docker-jupyterlab",
+     "sim": 0.667
+    },
+    {
+     "id": "life-post-goodbye-2023",
+     "sim": 0.568
+    },
+    {
+     "id": "datascience-post-bigquery",
+     "sim": 0.557
+    }
+   ],
+   "cluster": 2
+  },
+  {
+   "id": "datascience-post-crossentropy",
+   "title": "비용함수로써 크로스엔트로피",
+   "category": "DataScience",
+   "excerpt": "크로스엔트로피에 대해서, 알지 못했던 관점들을 설명해주는 글을 읽었습니다.",
+   "length": 3599,
+   "neighbors": [
+    {
+     "id": "datascience-post-an-introduce-to-roc",
+     "sim": 0.578
+    },
+    {
+     "id": "datascience-post-VAE",
+     "sim": 0.543
+    },
+    {
+     "id": "datascience-post-an-overview-of-gradient-descent-optimization-algorithms",
+     "sim": 0.526
+    }
+   ],
+   "cluster": 4
+  },
+  {
+   "id": "datascience-post-dacon-daegu-traffic-eda",
+   "title": "대구 교통사고 피해예측 EDA 코드",
+   "category": "DataScience",
+   "excerpt": "대구 교통사고 피해예측 대회에 참여하여 EDA 결과를 공유하였습니다.",
+   "length": 705,
+   "neighbors": [
+    {
+     "id": "datascience-post-store-sales-eda",
+     "sim": 0.58
+    },
+    {
+     "id": "datascience-psot-transformer-positional-encoding",
+     "sim": 0.484
+    },
+    {
+     "id": "datascience-post-VAE",
+     "sim": 0.466
+    }
+   ],
+   "cluster": 0
+  },
+  {
+   "id": "datascience-post-docker-jupyterlab",
+   "title": "주피터랩 컨테이너화 기본",
+   "category": "DataScience",
+   "excerpt": "도커 활용 사례 가이드 - 주피터랩",
+   "length": 4312,
+   "neighbors": [
+    {
+     "id": "datascience-post-cicd",
+     "sim": 0.667
+    },
+    {
+     "id": "datascience-post-patchcore",
+     "sim": 0.534
+    },
+    {
+     "id": "datascience-post-vectorization",
+     "sim": 0.514
+    }
+   ],
+   "cluster": 2
+  },
+  {
+   "id": "datascience-post-factory-planning",
+   "title": "(OR) Factory Planning",
+   "category": "DataScience",
+   "excerpt": "생산 계획 최적화 문제를 풀어봅니다.",
+   "length": 7336,
+   "neighbors": [
+    {
+     "id": "datascience-post-single-machine-scheduling",
+     "sim": 0.776
+    },
+    {
+     "id": "datascience-post-an-overview-of-gradient-descent-optimization-algorithms",
+     "sim": 0.503
+    },
+    {
+     "id": "datascience-post-VAE",
+     "sim": 0.5
+    }
+   ],
+   "cluster": 0
+  },
+  {
+   "id": "datascience-post-gradcam",
+   "title": "간단하게 Grad-CAM 논문 이해하기",
+   "category": "DataScience",
+   "excerpt": "이 논문은 더 투명하고 설명력있는 CNN 기반의 모델을 만들기 위해, '시각적인 설명'을 생성하는 기술(Grad-CAM)을 제안한다.",
+   "length": 2889,
+   "neighbors": [
+    {
+     "id": "datascience-post-mnist-gradcam",
+     "sim": 0.742
+    },
+    {
+     "id": "datascience-post-VAE",
+     "sim": 0.587
+    },
+    {
+     "id": "datascience-psot-transformer-positional-encoding",
+     "sim": 0.582
+    }
+   ],
+   "cluster": 0
+  },
+  {
+   "id": "datascience-post-mnist-gradcam",
+   "title": "MNIST 데이터셋 Grad-CAM 적용",
+   "category": "DataScience",
+   "excerpt": "MNIST데이터 셋으로 Grad-CAM을 간단하게 구현해보았다",
+   "length": 6295,
+   "neighbors": [
+    {
+     "id": "datascience-post-gradcam",
+     "sim": 0.742
+    },
+    {
+     "id": "datascience-post-an-overview-of-gradient-descent-optimization-algorithms",
+     "sim": 0.518
+    },
+    {
+     "id": "datascience-post-time-series-anomaly-detection-ae",
+     "sim": 0.518
+    }
+   ],
+   "cluster": 0
+  },
+  {
+   "id": "datascience-post-nfp",
+   "title": "No Fit Polygon",
+   "category": "DataScience",
+   "excerpt": "No Fit Polygon에 대해 공부하며 정리한 글입니다.",
+   "length": 3278,
+   "neighbors": [
+    {
+     "id": "datascience-post-adp-3",
+     "sim": 0.497
+    },
+    {
+     "id": "datascience-post-transformer",
+     "sim": 0.49
+    },
+    {
+     "id": "datascience-post-adp-5",
+     "sim": 0.488
+    }
+   ],
+   "cluster": 1
+  },
+  {
+   "id": "datascience-post-patchcore",
+   "title": "Towards Total Recall in Industrial Anomaly Detection",
+   "category": "DataScience",
+   "excerpt": "이 논문의 과제는 정상데이터만을 사용하여 모델을 학습시키는 cold-start 문제이다.",
+   "length": 6799,
+   "neighbors": [
+    {
+     "id": "datascience-post-time-series-anomaly-detection-ae",
+     "sim": 0.629
+    },
+    {
+     "id": "datascience-post-adp-2",
+     "sim": 0.597
+    },
+    {
+     "id": "datascience-post-an-introduce-to-roc",
+     "sim": 0.586
+    }
+   ],
+   "cluster": 4
+  },
+  {
+   "id": "datascience-post-recurrent",
+   "title": "Recurrent neural network",
+   "category": "DataScience",
+   "excerpt": "순환신경망은 시퀀스 데이터를 다루는데 특화되어 있다.",
+   "length": 6901,
+   "neighbors": [
+    {
+     "id": "datascience-post-vectorization",
+     "sim": 0.583
+    },
+    {
+     "id": "datascience-post-transformer",
+     "sim": 0.575
+    },
+    {
+     "id": "datascience-psot-transformer-positional-encoding",
+     "sim": 0.571
+    }
+   ],
+   "cluster": 2
+  },
+  {
+   "id": "datascience-post-regression-corr",
+   "title": "회귀와 상관분석의 차이",
+   "category": "DataScience",
+   "excerpt": "Linear regression과 Correlation의 차이는 무엇인가요? 라는 인터뷰 질문을 받았다.",
+   "length": 1658,
+   "neighbors": [
+    {
+     "id": "datascience-post-adp-3",
+     "sim": 0.68
+    },
+    {
+     "id": "datascience-post-adp-5",
+     "sim": 0.643
+    },
+    {
+     "id": "datascience-post-adp-4",
+     "sim": 0.548
+    }
+   ],
+   "cluster": 1
+  },
+  {
+   "id": "datascience-post-single-machine-scheduling",
+   "title": "(OR)Single Machine Scheduling",
+   "category": "DataScience",
+   "excerpt": "전체 작업의 완료시간을 최소화 하는 작업 순서를 찾습니다.",
+   "length": 8228,
+   "neighbors": [
+    {
+     "id": "datascience-post-factory-planning",
+     "sim": 0.776
+    },
+    {
+     "id": "datascience-post-time-series-anomaly-detection-ae",
+     "sim": 0.534
+    },
+    {
+     "id": "datascience-post-an-overview-of-gradient-descent-optimization-algorithms",
+     "sim": 0.493
+    }
+   ],
+   "cluster": 0
+  },
+  {
+   "id": "datascience-post-store-sales-eda",
+   "title": "시계열 데이터 시각화 with seaborn",
+   "category": "DataScience",
+   "excerpt": "EDA tutorial 시계열 seaborn 시각화",
+   "length": 21667,
+   "neighbors": [
+    {
+     "id": "datascience-post-dacon-daegu-traffic-eda",
+     "sim": 0.58
+    },
+    {
+     "id": "datascience-post-adp-1",
+     "sim": 0.561
+    },
+    {
+     "id": "datascience-post-time-series-anomaly-detection-ae",
+     "sim": 0.522
+    }
+   ],
+   "cluster": 0
+  },
+  {
+   "id": "datascience-post-time-series-anomaly-detection-ae",
+   "title": "(keras) Timeseries anomaly detection using an Autoencoder",
+   "category": "DataScience",
+   "excerpt": "오토 인코더를 사용한 시계열 이상탐지",
+   "length": 12823,
+   "neighbors": [
+    {
+     "id": "datascience-psot-transformer-positional-encoding",
+     "sim": 0.631
+    },
+    {
+     "id": "datascience-post-patchcore",
+     "sim": 0.629
+    },
+    {
+     "id": "datascience-post-adp-2",
+     "sim": 0.568
+    }
+   ],
+   "cluster": 0
+  },
+  {
+   "id": "datascience-post-transformer",
+   "title": "간단하게 Transformer 논문 이해하기",
+   "category": "DataScience",
+   "excerpt": "트랜스포머 모델은 Encoder, Decoder, Multi-head Attention, Positional Encoding를 포함하는 구조로 이루어져있다.",
+   "length": 4698,
+   "neighbors": [
+    {
+     "id": "datascience-psot-transformer-positional-encoding",
+     "sim": 0.749
+    },
+    {
+     "id": "datascience-post-gradcam",
+     "sim": 0.576
+    },
+    {
+     "id": "datascience-post-recurrent",
+     "sim": 0.575
+    }
+   ],
+   "cluster": 0
+  },
+  {
+   "id": "datascience-post-vectorization",
+   "title": "수많은 데이터에 대한 경사 하강을 어떻게 빠르게 할수 있을까?",
+   "category": "DataScience",
+   "excerpt": "신경망을 학습시키기 위한 순전파, 역전파 연산은 계산량이 많다.",
+   "length": 1977,
+   "neighbors": [
+    {
+     "id": "datascience-post-an-overview-of-gradient-descent-optimization-algorithms",
+     "sim": 0.607
+    },
+    {
+     "id": "datascience-post-recurrent",
+     "sim": 0.583
+    },
+    {
+     "id": "datascience-psot-transformer-positional-encoding",
+     "sim": 0.557
+    }
+   ],
+   "cluster": 2
+  },
+  {
+   "id": "datascience-post-weight-initualize",
+   "title": "가중치 초기화를 상수로 하면 안되는 이유",
+   "category": "DataScience",
+   "excerpt": "가중치 초기화는 최적의 가중치를 찾기 위한 출발지를 정하는 것이기 때문에, 신경망 모델에서 중요한 하이퍼파라미터다.",
+   "length": 2263,
+   "neighbors": [
+    {
+     "id": "datascience-post-vectorization",
+     "sim": 0.545
+    },
+    {
+     "id": "datascience-post-adp-3",
+     "sim": 0.509
+    },
+    {
+     "id": "datascience-post-an-introduce-to-roc",
+     "sim": 0.506
+    }
+   ],
+   "cluster": 4
+  },
+  {
+   "id": "datascience-psot-transformer-positional-encoding",
+   "title": "Transformer 구현 코드로 이해하기 - Positional Encodig",
+   "category": "DataScience",
+   "excerpt": "Positional Encoding은 데이터의 순서정보를 학습하기 위해 사용하는 기법입니다.",
+   "length": 4862,
+   "neighbors": [
+    {
+     "id": "datascience-post-transformer",
+     "sim": 0.749
+    },
+    {
+     "id": "datascience-post-time-series-anomaly-detection-ae",
+     "sim": 0.631
+    },
+    {
+     "id": "datascience-post-gradcam",
+     "sim": 0.582
+    }
+   ],
+   "cluster": 0
+  },
+  {
+   "id": "life-post-goodbye-2023",
+   "title": "Goodbye 2023, Welcome 2024",
+   "category": "Life",
+   "excerpt": "일상 속에서 발견한 작은 이야기들을 기록합니다.",
+   "length": 5731,
+   "neighbors": [
+    {
+     "id": "book-post-3",
+     "sim": 0.652
+    },
+    {
+     "id": "datascience-post-cicd",
+     "sim": 0.568
+    },
+    {
+     "id": "book-post-5",
+     "sim": 0.518
+    }
+   ],
+   "cluster": 3
+  }
+ ],
+ "links": [
+  {
+   "source": "book-post-1",
+   "target": "book-post-4",
+   "sim": 0.502
+  },
+  {
+   "source": "book-post-1",
+   "target": "book-post-3",
+   "sim": 0.466
+  },
+  {
+   "source": "book-post-1",
+   "target": "book-post-5",
+   "sim": 0.46
+  },
+  {
+   "source": "book-post-2",
+   "target": "book-post-3",
+   "sim": 0.635
+  },
+  {
+   "source": "book-post-2",
+   "target": "book-post-5",
+   "sim": 0.526
+  },
+  {
+   "source": "book-post-2",
+   "target": "life-post-goodbye-2023",
+   "sim": 0.488
+  },
+  {
+   "source": "book-post-3",
+   "target": "life-post-goodbye-2023",
+   "sim": 0.652
+  },
+  {
+   "source": "book-post-3",
+   "target": "book-post-5",
+   "sim": 0.611
+  },
+  {
+   "source": "book-post-3",
+   "target": "book-post-4",
+   "sim": 0.551
+  },
+  {
+   "source": "book-post-4",
+   "target": "book-post-5",
+   "sim": 0.519
+  },
+  {
+   "source": "datascience-post-VAE",
+   "target": "datascience-post-gradcam",
+   "sim": 0.587
+  },
+  {
+   "source": "datascience-post-VAE",
+   "target": "datascience-psot-transformer-positional-encoding",
+   "sim": 0.58
+  },
+  {
+   "source": "datascience-post-VAE",
+   "target": "datascience-post-time-series-anomaly-detection-ae",
+   "sim": 0.565
+  },
+  {
+   "source": "datascience-post-adp-1",
+   "target": "datascience-post-adp-2",
+   "sim": 0.814
+  },
+  {
+   "source": "datascience-post-adp-1",
+   "target": "datascience-post-adp-4",
+   "sim": 0.657
+  },
+  {
+   "source": "datascience-post-adp-1",
+   "target": "datascience-post-adp-3",
+   "sim": 0.646
+  },
+  {
+   "source": "datascience-post-adp-2",
+   "target": "datascience-post-adp-4",
+   "sim": 0.646
+  },
+  {
+   "source": "datascience-post-adp-2",
+   "target": "datascience-post-adp-3",
+   "sim": 0.635
+  },
+  {
+   "source": "datascience-post-adp-3",
+   "target": "datascience-post-adp-4",
+   "sim": 0.784
+  },
+  {
+   "source": "datascience-post-adp-3",
+   "target": "datascience-post-adp-5",
+   "sim": 0.726
+  },
+  {
+   "source": "datascience-post-adp-3",
+   "target": "datascience-post-regression-corr",
+   "sim": 0.68
+  },
+  {
+   "source": "datascience-post-adp-4",
+   "target": "datascience-post-adp-5",
+   "sim": 0.666
+  },
+  {
+   "source": "datascience-post-adp-5",
+   "target": "datascience-post-regression-corr",
+   "sim": 0.643
+  },
+  {
+   "source": "datascience-post-an-introduce-to-roc",
+   "target": "datascience-post-patchcore",
+   "sim": 0.586
+  },
+  {
+   "source": "datascience-post-an-introduce-to-roc",
+   "target": "datascience-post-crossentropy",
+   "sim": 0.578
+  },
+  {
+   "source": "datascience-post-adp-5",
+   "target": "datascience-post-an-introduce-to-roc",
+   "sim": 0.567
+  },
+  {
+   "source": "datascience-post-an-overview-of-gradient-descent-optimization-algorithms",
+   "target": "datascience-post-vectorization",
+   "sim": 0.607
+  },
+  {
+   "source": "datascience-post-an-overview-of-gradient-descent-optimization-algorithms",
+   "target": "datascience-post-gradcam",
+   "sim": 0.57
+  },
+  {
+   "source": "datascience-post-VAE",
+   "target": "datascience-post-an-overview-of-gradient-descent-optimization-algorithms",
+   "sim": 0.55
+  },
+  {
+   "source": "datascience-post-better-code-1",
+   "target": "datascience-post-better-code-2",
+   "sim": 0.63
+  },
+  {
+   "source": "datascience-post-better-code-1",
+   "target": "datascience-post-vectorization",
+   "sim": 0.543
+  },
+  {
+   "source": "datascience-post-better-code-1",
+   "target": "datascience-post-recurrent",
+   "sim": 0.514
+  },
+  {
+   "source": "datascience-post-better-code-2",
+   "target": "datascience-post-recurrent",
+   "sim": 0.539
+  },
+  {
+   "source": "datascience-post-better-code-2",
+   "target": "datascience-post-bigquery",
+   "sim": 0.528
+  },
+  {
+   "source": "datascience-post-bigquery",
+   "target": "datascience-post-cicd",
+   "sim": 0.557
+  },
+  {
+   "source": "datascience-post-bigquery",
+   "target": "datascience-post-vectorization",
+   "sim": 0.533
+  },
+  {
+   "source": "datascience-post-cicd",
+   "target": "datascience-post-docker-jupyterlab",
+   "sim": 0.667
+  },
+  {
+   "source": "datascience-post-cicd",
+   "target": "life-post-goodbye-2023",
+   "sim": 0.568
+  },
+  {
+   "source": "datascience-post-VAE",
+   "target": "datascience-post-crossentropy",
+   "sim": 0.543
+  },
+  {
+   "source": "datascience-post-an-overview-of-gradient-descent-optimization-algorithms",
+   "target": "datascience-post-crossentropy",
+   "sim": 0.526
+  },
+  {
+   "source": "datascience-post-dacon-daegu-traffic-eda",
+   "target": "datascience-post-store-sales-eda",
+   "sim": 0.58
+  },
+  {
+   "source": "datascience-post-dacon-daegu-traffic-eda",
+   "target": "datascience-psot-transformer-positional-encoding",
+   "sim": 0.484
+  },
+  {
+   "source": "datascience-post-VAE",
+   "target": "datascience-post-dacon-daegu-traffic-eda",
+   "sim": 0.466
+  },
+  {
+   "source": "datascience-post-docker-jupyterlab",
+   "target": "datascience-post-patchcore",
+   "sim": 0.534
+  },
+  {
+   "source": "datascience-post-docker-jupyterlab",
+   "target": "datascience-post-vectorization",
+   "sim": 0.514
+  },
+  {
+   "source": "datascience-post-factory-planning",
+   "target": "datascience-post-single-machine-scheduling",
+   "sim": 0.776
+  },
+  {
+   "source": "datascience-post-an-overview-of-gradient-descent-optimization-algorithms",
+   "target": "datascience-post-factory-planning",
+   "sim": 0.503
+  },
+  {
+   "source": "datascience-post-VAE",
+   "target": "datascience-post-factory-planning",
+   "sim": 0.5
+  },
+  {
+   "source": "datascience-post-gradcam",
+   "target": "datascience-post-mnist-gradcam",
+   "sim": 0.742
+  },
+  {
+   "source": "datascience-post-gradcam",
+   "target": "datascience-psot-transformer-positional-encoding",
+   "sim": 0.582
+  },
+  {
+   "source": "datascience-post-an-overview-of-gradient-descent-optimization-algorithms",
+   "target": "datascience-post-mnist-gradcam",
+   "sim": 0.518
+  },
+  {
+   "source": "datascience-post-mnist-gradcam",
+   "target": "datascience-post-time-series-anomaly-detection-ae",
+   "sim": 0.518
+  },
+  {
+   "source": "datascience-post-adp-3",
+   "target": "datascience-post-nfp",
+   "sim": 0.497
+  },
+  {
+   "source": "datascience-post-nfp",
+   "target": "datascience-post-transformer",
+   "sim": 0.49
+  },
+  {
+   "source": "datascience-post-adp-5",
+   "target": "datascience-post-nfp",
+   "sim": 0.488
+  },
+  {
+   "source": "datascience-post-patchcore",
+   "target": "datascience-post-time-series-anomaly-detection-ae",
+   "sim": 0.629
+  },
+  {
+   "source": "datascience-post-adp-2",
+   "target": "datascience-post-patchcore",
+   "sim": 0.597
+  },
+  {
+   "source": "datascience-post-recurrent",
+   "target": "datascience-post-vectorization",
+   "sim": 0.583
+  },
+  {
+   "source": "datascience-post-recurrent",
+   "target": "datascience-post-transformer",
+   "sim": 0.575
+  },
+  {
+   "source": "datascience-post-recurrent",
+   "target": "datascience-psot-transformer-positional-encoding",
+   "sim": 0.571
+  },
+  {
+   "source": "datascience-post-adp-4",
+   "target": "datascience-post-regression-corr",
+   "sim": 0.548
+  },
+  {
+   "source": "datascience-post-single-machine-scheduling",
+   "target": "datascience-post-time-series-anomaly-detection-ae",
+   "sim": 0.534
+  },
+  {
+   "source": "datascience-post-an-overview-of-gradient-descent-optimization-algorithms",
+   "target": "datascience-post-single-machine-scheduling",
+   "sim": 0.493
+  },
+  {
+   "source": "datascience-post-adp-1",
+   "target": "datascience-post-store-sales-eda",
+   "sim": 0.561
+  },
+  {
+   "source": "datascience-post-store-sales-eda",
+   "target": "datascience-post-time-series-anomaly-detection-ae",
+   "sim": 0.522
+  },
+  {
+   "source": "datascience-post-time-series-anomaly-detection-ae",
+   "target": "datascience-psot-transformer-positional-encoding",
+   "sim": 0.631
+  },
+  {
+   "source": "datascience-post-adp-2",
+   "target": "datascience-post-time-series-anomaly-detection-ae",
+   "sim": 0.568
+  },
+  {
+   "source": "datascience-post-transformer",
+   "target": "datascience-psot-transformer-positional-encoding",
+   "sim": 0.749
+  },
+  {
+   "source": "datascience-post-gradcam",
+   "target": "datascience-post-transformer",
+   "sim": 0.576
+  },
+  {
+   "source": "datascience-post-vectorization",
+   "target": "datascience-psot-transformer-positional-encoding",
+   "sim": 0.557
+  },
+  {
+   "source": "datascience-post-vectorization",
+   "target": "datascience-post-weight-initualize",
+   "sim": 0.545
+  },
+  {
+   "source": "datascience-post-adp-3",
+   "target": "datascience-post-weight-initualize",
+   "sim": 0.509
+  },
+  {
+   "source": "datascience-post-an-introduce-to-roc",
+   "target": "datascience-post-weight-initualize",
+   "sim": 0.506
+  },
+  {
+   "source": "book-post-5",
+   "target": "life-post-goodbye-2023",
+   "sim": 0.518
+  }
+ ],
+ "satellites": [
+  {
+   "id": "https://youtube.com/watch?v=GbCAwVVKaHY",
+   "kind": "video",
+   "parents": [
+    "datascience-post-VAE"
+   ],
+   "title": "강남우 교수님 유투브 강의 영상"
+  },
+  {
+   "id": "https://youtube.com/watch?v=rNh2CrTFpm4",
+   "kind": "video",
+   "parents": [
+    "datascience-post-VAE"
+   ],
+   "title": "오토인코더의 모든것 - 2/3"
+  },
+  {
+   "id": "https://kaggle.com/c/bike-sharing-demand/overview",
+   "kind": "dataset",
+   "parents": [
+    "datascience-post-adp-1"
+   ],
+   "title": "Bike Sharing Demand | Kaggle"
+  },
+  {
+   "id": "https://dining-developer.tistory.com/17(skewness",
+   "kind": "article",
+   "parents": [
+    "datascience-post-adp-1"
+   ],
+   "title": "dining-developer.tistory.com"
+  },
+  {
+   "id": "https://dining-developer.tistory.com/17",
+   "kind": "article",
+   "parents": [
+    "datascience-post-adp-1"
+   ],
+   "title": "Skew(왜도) 와 Kurtosis(첨도) - 데이터 과학에서 알아야 할 두가지 중요한 통계 용어 - 밥먹는 개발자"
+  },
+  {
+   "id": "https://hyen4110.tistory.com/38",
+   "kind": "article",
+   "parents": [
+    "datascience-post-adp-3"
+   ],
+   "title": "[통계] 상관관계(Correlation Coefficient)"
+  },
+  {
+   "id": "https://blog.acronym.co.kr/621",
+   "kind": "article",
+   "parents": [
+    "datascience-post-adp-4"
+   ],
+   "title": "통계적 가설 검정(Statistical Hypothesis Testing) 절차 :: 루키의 보석함"
+  },
+  {
+   "id": "https://laoonlee.tistory.com/11",
+   "kind": "article",
+   "parents": [
+    "datascience-post-adp-4"
+   ],
+   "title": "(통계 용어) 유의수준 and 유의확률"
+  },
+  {
+   "id": "https://johaupt.github.io/blog/Area_under_ROC_curve.html",
+   "kind": "article",
+   "parents": [
+    "datascience-post-an-introduce-to-roc"
+   ],
+   "title": "The ROC-AUC and the Mann-Whitney U-test (Wilcoxon rank sum test) | Johannes Haup"
+  },
+  {
+   "id": "https://theeluwin.postype.com/post/6080524",
+   "kind": "article",
+   "parents": [
+    "datascience-post-crossentropy"
+   ],
+   "title": "왜 크로스 엔트로피를 쓸까?: 제이미"
+  },
+  {
+   "id": "https://dacon.io/competitions/official/236193/overview/description",
+   "kind": "dataset",
+   "parents": [
+    "datascience-post-dacon-daegu-traffic-eda"
+   ],
+   "title": "대구 교통사고 피해 예측 AI 경진대회 - DACON"
+  },
+  {
+   "id": "https://dacon.io/competitions/official/236193/codeshare/9446",
+   "kind": "dataset",
+   "parents": [
+    "datascience-post-dacon-daegu-traffic-eda"
+   ],
+   "title": "대구 교통사고 피해예측 EDA - DACON"
+  },
+  {
+   "id": "https://docs.docker.com/guides/use-case/jupyter",
+   "kind": "docs",
+   "parents": [
+    "datascience-post-docker-jupyterlab"
+   ],
+   "title": "Data science with JupyterLab | Docker Docs"
+  },
+  {
+   "id": "https://docker.com/blog/supercharging-ai-ml-development-with-jupyterlab-and-docker",
+   "kind": "docs",
+   "parents": [
+    "datascience-post-docker-jupyterlab"
+   ],
+   "title": "Supercharging AI/ML Development with JupyterLab and Docker | Docker"
+  },
+  {
+   "id": "https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html",
+   "kind": "docs",
+   "parents": [
+    "datascience-post-docker-jupyterlab"
+   ],
+   "title": "Selecting an Image — Docker Stacks documentation"
+  },
+  {
+   "id": "https://support.sas.com/documentation/onlinedoc/or/151/ormpex.pdf",
+   "kind": "docs",
+   "parents": [
+    "datascience-post-factory-planning"
+   ],
+   "title": "SAS example"
+  },
+  {
+   "id": "https://arxiv.org/abs/1610.02391",
+   "kind": "paper",
+   "parents": [
+    "datascience-post-gradcam"
+   ],
+   "title": "Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization"
+  },
+  {
+   "id": "https://keras.io/examples/vision/grad_cam",
+   "kind": "docs",
+   "parents": [
+    "datascience-post-mnist-gradcam"
+   ],
+   "title": "Grad-CAM class activation visualization"
+  },
+  {
+   "id": "https://github.com/jaekookang/mnist-grad-cam/blob/master/mnist_grad_cam.ipynb",
+   "kind": "docs",
+   "parents": [
+    "datascience-post-mnist-gradcam"
+   ],
+   "title": "mnist-grad-cam/mnist_grad_cam.ipynb at master · jaekookang/mnist-grad-cam · GitH"
+  },
+  {
+   "id": "https://arxiv.org/abs/2106.08265",
+   "kind": "paper",
+   "parents": [
+    "datascience-post-patchcore"
+   ],
+   "title": "Towards Total Recall in Industrial Anomaly Detection"
+  },
+  {
+   "id": "https://wikidocs.net/106473",
+   "kind": "article",
+   "parents": [
+    "datascience-post-recurrent"
+   ],
+   "title": "위키독스"
+  },
+  {
+   "id": "https://excelsior-cjh.tistory.com/183",
+   "kind": "article",
+   "parents": [
+    "datascience-post-recurrent"
+   ],
+   "title": "07-1.순환 신경망(RNN, Recurrent Neural Network) - (1)"
+  },
+  {
+   "id": "https://colah.github.io/posts/2015-08-Understanding-LSTMs",
+   "kind": "article",
+   "parents": [
+    "datascience-post-recurrent"
+   ],
+   "title": "Understanding LSTM Networks -- colah's blog"
+  },
+  {
+   "id": "https://dgkim5360.tistory.com/entry/understanding-long-short-term-memory-lstm-kr",
+   "kind": "article",
+   "parents": [
+    "datascience-post-recurrent"
+   ],
+   "title": "Long Short-Term Memory (LSTM) 이해하기"
+  },
+  {
+   "id": "https://kaggle.com/competitions/store-sales-time-series-forecasting",
+   "kind": "dataset",
+   "parents": [
+    "datascience-post-store-sales-eda"
+   ],
+   "title": "Store Sales - Time Series Forecasting | Kaggle"
+  },
+  {
+   "id": "https://colab.research.google.com/notebooks/data_table.ipynb",
+   "kind": "article",
+   "parents": [
+    "datascience-post-store-sales-eda"
+   ],
+   "title": "Google Colab"
+  },
+  {
+   "id": "https://keras.io/examples/timeseries/timeseries_anomaly_detection",
+   "kind": "docs",
+   "parents": [
+    "datascience-post-time-series-anomaly-detection-ae"
+   ],
+   "title": "Timeseries anomaly detection using an Autoencoder"
+  },
+  {
+   "id": "https://kaggle.com/datasets/boltzmannbrain/nab",
+   "kind": "dataset",
+   "parents": [
+    "datascience-post-time-series-anomaly-detection-ae"
+   ],
+   "title": "Numenta Anomaly Benchmark (NAB) | Kaggle"
+  },
+  {
+   "id": "https://arxiv.org/abs/1706.03762",
+   "kind": "paper",
+   "parents": [
+    "datascience-post-transformer",
+    "datascience-psot-transformer-positional-encoding"
+   ],
+   "title": "Attention Is All You Need"
+  },
+  {
+   "id": "https://youtu.be/AA621UofTUA",
+   "kind": "video",
+   "parents": [
+    "datascience-post-transformer"
+   ],
+   "title": "youtu.be"
+  },
+  {
+   "id": "https://wikidocs.net/31379",
+   "kind": "article",
+   "parents": [
+    "datascience-post-transformer",
+    "datascience-psot-transformer-positional-encoding"
+   ],
+   "title": "wikidocs.net"
+  },
+  {
+   "id": "https://hongl.tistory.com/231",
+   "kind": "article",
+   "parents": [
+    "datascience-post-transformer",
+    "datascience-psot-transformer-positional-encoding"
+   ],
+   "title": "Transformer Positional Encoding"
+  },
+  {
+   "id": "https://github.com/ndb796/Deep-Learning-Paper-Review-and-Practice/blob/master/lecture_notes/Transformer.pdf",
+   "kind": "docs",
+   "parents": [
+    "datascience-post-transformer"
+   ],
+   "title": "Deep-Learning-Paper-Review-and-Practice/lecture_notes/Transformer.pdf at master "
+  }
+ ]
+}

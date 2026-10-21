@@ -1,0 +1,448 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  posts: CollectionEntry<'posts'>[];
+}
+
+const { posts } = Astro.props;
+const categories = ['DataScience', 'Book', 'Life'] as const;
+const counts = Object.fromEntries(
+  categories.map((c) => [c, posts.filter((p) => p.data.category === c).length]),
+);
+---
+
+<div class="cosmos">
+  <section class="sky" aria-label="글 지도">
+    <canvas class="dust"></canvas>
+    <svg class="map" role="img" aria-label="비슷한 글끼리 모여 있는 별 지도"><defs></defs></svg>
+    <div class="brand">
+      <h1>my-cosmos</h1>
+      <p>글은 별, 인용한 자료는 위성이에요</p>
+    </div>
+    <div class="legend">
+      <span><i style="--c: var(--DataScience)"></i>DataScience</span>
+      <span><i style="--c: var(--Book)"></i>Book</span>
+      <span><i style="--c: var(--Life)"></i>Life</span>
+      <span><i class="sat-dot"></i>인용한 자료</span>
+    </div>
+  </section>
+
+  <aside class="panel">
+    <!-- 목록 모드: 지도 없이도 일반 블로그처럼 글을 찾을 수 있어야 함 -->
+    <div class="list-view">
+      <nav class="filters" aria-label="카테고리">
+        <button type="button" data-cat="all" aria-pressed="true">전체 <small>{posts.length}</small></button>
+        {
+          categories.map((c) => (
+            <button type="button" data-cat={c} aria-pressed="false">
+              {c} <small>{counts[c]}</small>
+            </button>
+          ))
+        }
+      </nav>
+      <ol class="posts">
+        {
+          posts.map((p) => (
+            <li data-id={p.id} data-cat={p.data.category}>
+              <a href={`/posts/${p.id}`}>
+                <span class="title">{p.data.title}</span>
+                <span class="meta">
+                  <i style={`--c: var(--${p.data.category})`} />
+                  {p.data.category} · {p.data.date.toISOString().slice(0, 10)}
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+
+    <!-- 상세 모드: 별을 클릭했을 때 -->
+    <div class="detail-view" hidden></div>
+  </aside>
+</div>
+
+<style>
+  .cosmos {
+    --space: #03040a;
+    --text: #e8ecf5;
+    --muted: #8a93a8;
+    --line: rgba(255, 255, 255, 0.08);
+    --panel: rgba(10, 13, 24, 0.72);
+    --accent: #b9c6ff;
+    --DataScience: #8fb3ff;
+    --Book: #ffc98a;
+    --Life: #ff9ccf;
+    --panel-width: 360px;
+    min-height: 100vh;
+    color: var(--text);
+    background: var(--space);
+  }
+
+  .sky {
+    position: fixed;
+    inset: 0;
+  }
+
+  .dust,
+  .map {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .map {
+    cursor: grab;
+    touch-action: none;
+  }
+
+  .map:active {
+    cursor: grabbing;
+  }
+
+  .brand {
+    position: absolute;
+    top: 24px;
+    left: 28px;
+    pointer-events: none;
+  }
+
+  .brand h1 {
+    margin: 0;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+  }
+
+  .brand p {
+    margin: 4px 0 0;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .legend {
+    position: absolute;
+    left: 28px;
+    bottom: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    color: var(--muted);
+    font-size: 12px;
+    pointer-events: none;
+  }
+
+  .legend i,
+  .meta i {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 6px;
+    border-radius: 50%;
+    background: var(--c);
+    box-shadow: 0 0 8px var(--c);
+  }
+
+  .legend .sat-dot {
+    width: 5px;
+    height: 5px;
+    --c: #cfe3ff;
+  }
+
+  /* 패널 */
+  .panel {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    bottom: 20px;
+    width: var(--panel-width);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--panel);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    overflow: hidden;
+  }
+
+  .list-view,
+  .detail-view {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    flex: 1;
+  }
+
+  .list-view[hidden],
+  .detail-view[hidden] {
+    display: none;
+  }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 18px 18px 12px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .filters button {
+    padding: 6px 11px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--muted);
+    font: inherit;
+    font-size: 12.5px;
+    cursor: pointer;
+  }
+
+  .filters button[aria-pressed='true'] {
+    border-color: var(--accent);
+    color: var(--text);
+  }
+
+  .filters small {
+    opacity: 0.6;
+  }
+
+  .posts {
+    flex: 1;
+    margin: 0;
+    padding: 6px 0;
+    list-style: none;
+    overflow-y: auto;
+  }
+
+  .posts li[hidden] {
+    display: none;
+  }
+
+  .posts a {
+    display: block;
+    padding: 10px 18px;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .posts a:hover,
+  .posts a:focus-visible {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .posts .title {
+    display: block;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .posts .meta {
+    display: block;
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 11.5px;
+  }
+
+  .posts .meta i {
+    width: 6px;
+    height: 6px;
+  }
+
+  /* 모바일: 지도 아래로 목록이 이어짐 (목록이 기본 탐색 수단) */
+  @media (max-width: 860px) {
+    .sky {
+      position: relative;
+      height: 58vh;
+    }
+
+    .panel {
+      position: static;
+      width: auto;
+      border: 0;
+      border-top: 1px solid var(--line);
+      border-radius: 0;
+      backdrop-filter: none;
+      background: var(--space);
+    }
+
+    .posts {
+      overflow: visible;
+    }
+  }
+</style>
+
+<style is:global>
+  /* 별, 위성: d3가 만든 SVG 요소라 전역 스타일 */
+  .cosmos .star {
+    cursor: pointer;
+    transition: opacity 0.25s;
+  }
+  .cosmos .star .halo {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: cosmos-twinkle var(--tw, 4s) ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+  }
+  .cosmos .star .core {
+    fill: #fff;
+  }
+  .cosmos .star .spike {
+    stroke: #fff;
+    stroke-linecap: round;
+    opacity: 0.55;
+  }
+  .cosmos .star text,
+  .cosmos .sat text {
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    paint-order: stroke;
+    stroke: #03040a;
+    stroke-width: 3px;
+  }
+  .cosmos .star text {
+    fill: #e8ecf5;
+    font-size: 11px;
+    font-weight: 500;
+  }
+  .cosmos .sat {
+    cursor: pointer;
+    transition: opacity 0.25s;
+  }
+  .cosmos .sat .dot {
+    fill: #cfe3ff;
+  }
+  .cosmos .sat text {
+    fill: #8a93a8;
+    font-size: 9.5px;
+  }
+  .cosmos .star.show text,
+  .cosmos .sat.show text {
+    opacity: 1;
+  }
+  .cosmos .orbit {
+    fill: none;
+    stroke: rgba(200, 220, 255, 0.07);
+    stroke-dasharray: 1 3;
+  }
+  .cosmos .link {
+    stroke: #b9c6ff;
+    stroke-opacity: 0;
+    transition: stroke-opacity 0.25s;
+  }
+  .cosmos .link.hl {
+    stroke-opacity: 0.7;
+  }
+  .cosmos .sat-link {
+    stroke: #cfe3ff;
+    stroke-opacity: 0;
+    stroke-dasharray: 2 3;
+    transition: stroke-opacity 0.25s;
+  }
+  .cosmos .sat-link.hl {
+    stroke-opacity: 0.45;
+  }
+  .cosmos .dim .star:not(.show) {
+    opacity: 0.28;
+  }
+  .cosmos .dim .sat:not(.show) {
+    opacity: 0.15;
+  }
+  @keyframes cosmos-twinkle {
+    0%,
+    100% {
+      opacity: 0.85;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.12);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cosmos .star .halo {
+      animation: none;
+    }
+  }
+
+  /* 상세 패널 (스크립트가 채움) */
+  .cosmos .detail-view {
+    padding: 18px 20px 22px;
+    overflow-y: auto;
+  }
+  .cosmos .detail-view .back {
+    align-self: flex-start;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: #8a93a8;
+    font: inherit;
+    font-size: 12.5px;
+    cursor: pointer;
+  }
+  .cosmos .detail-view .cat {
+    margin-top: 18px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .cosmos .detail-view h2 {
+    margin: 6px 0 10px;
+    font-size: 19px;
+    line-height: 1.4;
+  }
+  .cosmos .detail-view p {
+    margin: 0 0 16px;
+    color: #c7cede;
+    font-size: 13.5px;
+    line-height: 1.7;
+  }
+  .cosmos .detail-view .read {
+    display: block;
+    padding: 11px 14px;
+    border-radius: 10px;
+    background: #b9c6ff;
+    color: #0a0d18;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+  }
+  .cosmos .detail-view h3 {
+    margin: 22px 0 6px;
+    color: #8a93a8;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+  }
+  .cosmos .detail-view .row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 9px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: #e8ecf5;
+    font-size: 13px;
+    text-decoration: none;
+  }
+  .cosmos .detail-view .row:hover {
+    color: #b9c6ff;
+  }
+  .cosmos .detail-view .row b {
+    color: #b9c6ff;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+  .cosmos .detail-view .row small {
+    color: #8a93a8;
+    white-space: nowrap;
+  }
+</style>
+
+<script>
+  import { initCosmos } from '../scripts/cosmos';
+
+  initCosmos(document.querySelector<HTMLElement>('.cosmos')!);
+</script>

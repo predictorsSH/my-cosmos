@@ -1,49 +1,17 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Cosmos from '../components/Cosmos.astro';
 
-// 임시 메인: 지도 화면을 만들기 전까지 글 확인용 목록
 const posts = (await getCollection('posts')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 ---
 
-<BaseLayout title="my-cosmos">
-  <ul class="post-list">
-    {
-      posts.map((post) => (
-        <li>
-          <a href={`/posts/${post.id}`}>{post.data.title}</a>
-          <span>
-            {post.data.category} · {post.data.date.toISOString().slice(0, 10)}
-          </span>
-        </li>
-      ))
-    }
-  </ul>
+<BaseLayout
+  title="my-cosmos"
+  description="AI와 데이터를 공부하고 만든 것들을 기록하는 블로그. 글은 별, 인용한 자료는 위성이 되어 하나의 우주를 이룹니다."
+  bare
+>
+  <Cosmos posts={posts} />
 </BaseLayout>
-
-<style>
-  .post-list {
-    list-style: none;
-    padding: 0;
-  }
-
-  .post-list li {
-    display: flex;
-    flex-direction: column;
-    padding: 12px 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .post-list a {
-    color: var(--text);
-    font-weight: 600;
-    text-decoration: none;
-  }
-
-  .post-list span {
-    color: var(--muted);
-    font-size: 0.85rem;
-  }
-</style>
