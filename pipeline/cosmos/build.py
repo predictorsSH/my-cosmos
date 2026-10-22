@@ -4,8 +4,9 @@
 - 성운: 유사도 그래프의 군집.
 - 위성: 글 본문에서 인용한 외부 링크.
 
-실행: uv run --with-requirements scripts/cosmos/requirements.txt scripts/cosmos/build.py
+실행: uv run --project pipeline pipeline/cosmos/build.py
 """
+
 import html
 import json
 import re
@@ -28,11 +29,24 @@ K = 3
 BODY_CHARS = 2000
 
 SKIP_HOSTS = {"predictorssh.github.io", "www.w3.org"}
-GENERIC_LINK_TEXT = {"출처", "블로그", "참고블로그", "참고자료", "그림", "paper", "1", "2", "이 블로그", "해당 블로그 포스터", "대회보기"}
+GENERIC_LINK_TEXT = {
+    "출처",
+    "블로그",
+    "참고블로그",
+    "참고자료",
+    "그림",
+    "paper",
+    "1",
+    "2",
+    "이 블로그",
+    "해당 블로그 포스터",
+    "대회보기",
+}
 URL_RE = re.compile(r"https?://[^\s)\]\"'<>]+")
 
 
 # ---------- 글 ----------
+
 
 def strip_code(md: str) -> str:
     md = re.sub(r"```.*?```", " ", md, flags=re.S)
@@ -54,19 +68,22 @@ def load_posts():
     for f in sorted([*POSTS.glob("*.md"), *POSTS.glob("*.mdx")]):
         post = frontmatter.load(f)
         excerpt = post.get("excerpt") or ""
-        posts.append({
-            "id": f.stem,
-            "title": post["title"],
-            "category": post["category"],
-            "excerpt": excerpt,
-            "length": len(post.content),
-            "_body": post.content,
-            "_text": f"{post['title']}\n{excerpt}\n{clean(post.content)[:BODY_CHARS]}",
-        })
+        posts.append(
+            {
+                "id": f.stem,
+                "title": post["title"],
+                "category": post["category"],
+                "excerpt": excerpt,
+                "length": len(post.content),
+                "_body": post.content,
+                "_text": f"{post['title']}\n{excerpt}\n{clean(post.content)[:BODY_CHARS]}",
+            }
+        )
     return posts
 
 
 # ---------- 위성 ----------
+
 
 def normalize_url(url: str) -> str:
     u = urlparse(url.rstrip(".,"))
@@ -138,6 +155,7 @@ def load_satellites(posts):
 
 # ---------- 별, 성운 ----------
 
+
 def main():
     posts = load_posts()
     vecs = SentenceTransformer(MODEL).encode([p["_text"] for p in posts], normalize_embeddings=True)
@@ -161,12 +179,23 @@ def main():
     for p in posts:
         del p["_body"], p["_text"]
 
-    OUT.write_text(json.dumps({
-        "stars": posts,
-        "links": [{"source": posts[a]["id"], "target": posts[b]["id"], "sim": s} for (a, b), s in links.items()],
-        "satellites": satellites,
-    }, ensure_ascii=False, indent=1) + "\n")
-    print(f"{OUT.relative_to(ROOT)}: 별 {len(posts)}, 연결 {len(links)}, 위성 {len(satellites)}, 성운 {len(communities)}")
+    OUT.write_text(
+        json.dumps(
+            {
+                "stars": posts,
+                "links": [
+                    {"source": posts[a]["id"], "target": posts[b]["id"], "sim": s} for (a, b), s in links.items()
+                ],
+                "satellites": satellites,
+            },
+            ensure_ascii=False,
+            indent=1,
+        )
+        + "\n"
+    )
+    print(
+        f"{OUT.relative_to(ROOT)}: 별 {len(posts)}, 연결 {len(links)}, 위성 {len(satellites)}, 성운 {len(communities)}"
+    )
 
 
 if __name__ == "__main__":

@@ -22,3 +22,10 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+
+# airflow
+pipeline/airflow/.env
+pipeline/airflow/logs/
+
+__pycache__/

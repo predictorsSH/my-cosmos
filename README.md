@@ -43,11 +43,11 @@ All commands are run from the root of the project, from a terminal:
 글을 추가하거나 수정하면 지도 데이터(`src/data/cosmos.json`)를 다시 만들고 함께 커밋한다.
 
 ```sh
-uv run -p 3.12 --with-requirements scripts/cosmos/requirements.txt scripts/cosmos/build.py
+uv run --project pipeline pipeline/cosmos/build.py
 ```
 
 - 처음 실행할 때 임베딩 모델(BAAI/bge-m3, 약 2GB)을 내려받는다.
-- 인용 링크의 제목은 `scripts/cosmos/satellite-titles.json`에 캐시된다.
+- 인용 링크의 제목은 `pipeline/cosmos/satellite-titles.json`에 캐시된다.
 
 ## 👀 Want to learn more?
 
