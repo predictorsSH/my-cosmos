@@ -27,3 +27,5 @@ pnpm-debug.log*
 # airflow
 pipeline/airflow/.env
 pipeline/airflow/logs/
+
+__pycache__/
