@@ -29,12 +29,13 @@ def push_outputs(work_dir: str) -> None:
     """결과물을 bot 브랜치에 커밋하고 push한다."""
     _git(work_dir, "checkout", "-B", PR_BRANCH)
     _git(work_dir, "add", "--", *OUTPUTS)
-    _git(
-        work_dir,
-        "-c", "user.name=cosmos-map-bot",
-        "-c", "user.email=cosmos-map-bot@users.noreply.github.com",
-        "commit", "-m", "chore: 우주 지도 데이터 갱신",
-    )  # fmt: skip
+    if _git(work_dir, "diff", "--cached", "--name-only"):  # 스테이징된 변경이 있을 때만 커밋
+        _git(
+            work_dir,
+            "-c", "user.name=cosmos-map-bot",
+            "-c", "user.email=cosmos-map-bot@users.noreply.github.com",
+            "commit", "-m", "chore: 우주 지도 데이터 갱신",
+        )  # fmt: skip
     _git(work_dir, "push", "--force", "origin", PR_BRANCH)
 
 

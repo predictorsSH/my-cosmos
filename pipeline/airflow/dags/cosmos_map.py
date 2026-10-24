@@ -1,4 +1,7 @@
+from datetime import timedelta
+
 import dag_utils
+import pendulum
 from airflow.sdk import Param, dag, get_current_context, task
 
 WORKDIR = "/tmp/my-cosmos"
@@ -38,7 +41,14 @@ def open_pr():
     return dag_utils.open_pr_with_auto_merge()
 
 
-@dag(schedule=None, max_active_runs=1, params={"force": Param(False, type="boolean")})
+@dag(
+    schedule="0 10,23 * * *",
+    start_date=pendulum.datetime(2026, 10, 23, tz="Asia/Seoul"),
+    catchup=False,
+    max_active_runs=1,
+    params={"force": Param(False, type="boolean")},
+    default_args={"retries": 2, "retry_delay": timedelta(minutes=5)},
+)
 def cosmos_map():
     work_dir = clone()
     (posts_changed(work_dir) >> build_map(work_dir) >> outputs_changed(work_dir) >> push_branch(work_dir) >> open_pr())
