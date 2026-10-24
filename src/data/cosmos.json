@@ -372,7 +372,7 @@
      "sim": 0.557
     }
    ],
-   "cluster": 4
+   "cluster": 2
   },
   {
    "id": "datascience-post-crossentropy",
@@ -394,7 +394,7 @@
      "sim": 0.526
     }
    ],
-   "cluster": 0
+   "cluster": 4
   },
   {
    "id": "datascience-post-dacon-daegu-traffic-eda",
@@ -438,7 +438,7 @@
      "sim": 0.514
     }
    ],
-   "cluster": 4
+   "cluster": 2
   },
   {
    "id": "datascience-post-factory-planning",
@@ -639,28 +639,6 @@
    "cluster": 0
   },
   {
-   "id": "datascience-post-test",
-   "title": "airflow 배치 테스트 글압니다.",
-   "category": "DataScience",
-   "excerpt": "airflow 배치 테스트입니다",
-   "length": 31,
-   "neighbors": [
-    {
-     "id": "datascience-post-adp-1",
-     "sim": 0.458
-    },
-    {
-     "id": "datascience-post-crossentropy",
-     "sim": 0.442
-    },
-    {
-     "id": "datascience-post-adp-2",
-     "sim": 0.431
-    }
-   ],
-   "cluster": 1
-  },
-  {
    "id": "datascience-post-time-series-anomaly-detection-ae",
    "title": "(keras) Timeseries anomaly detection using an Autoencoder",
    "category": "DataScience",
@@ -702,7 +680,7 @@
      "sim": 0.575
     }
    ],
-   "cluster": 2
+   "cluster": 0
   },
   {
    "id": "datascience-post-vectorization",
@@ -768,7 +746,7 @@
      "sim": 0.582
     }
    ],
-   "cluster": 2
+   "cluster": 0
   },
   {
    "id": "life-post-goodbye-2023",
@@ -1118,21 +1096,6 @@
    "source": "datascience-post-store-sales-eda",
    "target": "datascience-post-time-series-anomaly-detection-ae",
    "sim": 0.522
-  },
-  {
-   "source": "datascience-post-adp-1",
-   "target": "datascience-post-test",
-   "sim": 0.458
-  },
-  {
-   "source": "datascience-post-crossentropy",
-   "target": "datascience-post-test",
-   "sim": 0.442
-  },
-  {
-   "source": "datascience-post-adp-2",
-   "target": "datascience-post-test",
-   "sim": 0.431
   },
   {
    "source": "datascience-post-time-series-anomaly-detection-ae",
