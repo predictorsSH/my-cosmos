@@ -1,8 +1,8 @@
 """글을 임베딩해 우주 지도 데이터(src/data/cosmos.json)를 만든다.
 
 - 별: 내 글. 가장 비슷한 글 K개와 연결한다.
-- 성운: 유사도 그래프의 군집.
-- 위성: 글 본문에서 인용한 외부 링크.
+- 성단: 유사도 그래프의 군집.
+- 행성: 글 본문에서 인용한 외부 링크.
 
 실행: uv run --project pipeline pipeline/cosmos/build.py
 """
@@ -22,7 +22,7 @@ from sentence_transformers import SentenceTransformer
 ROOT = Path(__file__).resolve().parents[2]
 POSTS = ROOT / "src/content/posts"
 OUT = ROOT / "src/data/cosmos.json"
-TITLE_CACHE = Path(__file__).parent / "satellite-titles.json"
+TITLE_CACHE = Path(__file__).parent / "planet-titles.json"
 
 MODEL = "BAAI/bge-m3"
 K = 3
@@ -82,7 +82,7 @@ def load_posts():
     return posts
 
 
-# ---------- 위성 ----------
+# ---------- 행성 ----------
 
 
 def normalize_url(url: str) -> str:
@@ -96,7 +96,7 @@ def normalize_url(url: str) -> str:
     return f"https://{host}{u.path}".rstrip("/")
 
 
-def satellite_kind(url: str) -> str:
+def planet_kind(url: str) -> str:
     host = urlparse(url).netloc
     if "arxiv.org" in host:
         return "paper"
@@ -124,9 +124,9 @@ def fetch_title(url: str) -> str | None:
         return None
 
 
-def load_satellites(posts):
+def load_planets(posts):
     cache = json.loads(TITLE_CACHE.read_text()) if TITLE_CACHE.exists() else {}
-    sats = {}
+    planets = {}
     for p in posts:
         # 코드 블록, 인라인 코드 안의 주소는 인용이 아니므로 제외
         body = strip_code(p["_body"])
@@ -139,21 +139,21 @@ def load_satellites(posts):
                 continue
             text = re.search(r"\[([^\[\]]*)\]\]?\($", body[: m.start()])
             url = normalize_url(raw)
-            s = sats.setdefault(url, {"id": url, "kind": satellite_kind(url), "parents": [], "_texts": []})
+            s = planets.setdefault(url, {"id": url, "kind": planet_kind(url), "parents": [], "_texts": []})
             if p["id"] not in s["parents"]:
                 s["parents"].append(p["id"])
             if text and text[1].strip() and text[1].strip() not in GENERIC_LINK_TEXT and not text[1].startswith("http"):
                 s["_texts"].append(text[1].strip())
-    for url, s in sats.items():
+    for url, s in planets.items():
         if url not in cache:
             cache[url] = fetch_title(url)
         s["title"] = cache[url] or (s["_texts"][0] if s["_texts"] else urlparse(url).netloc)
         del s["_texts"]
     TITLE_CACHE.write_text(json.dumps(cache, ensure_ascii=False, indent=1) + "\n")
-    return list(sats.values())
+    return list(planets.values())
 
 
-# ---------- 별, 성운 ----------
+# ---------- 별, 성단 ----------
 
 
 def main():
@@ -175,7 +175,7 @@ def main():
         for i in members:
             posts[i]["cluster"] = c_idx
 
-    satellites = load_satellites(posts)
+    planets = load_planets(posts)
     for p in posts:
         del p["_body"], p["_text"]
 
@@ -186,7 +186,7 @@ def main():
                 "links": [
                     {"source": posts[a]["id"], "target": posts[b]["id"], "sim": s} for (a, b), s in links.items()
                 ],
-                "satellites": satellites,
+                "planets": planets,
             },
             ensure_ascii=False,
             indent=1,
@@ -194,7 +194,7 @@ def main():
         + "\n"
     )
     print(
-        f"{OUT.relative_to(ROOT)}: 별 {len(posts)}, 연결 {len(links)}, 위성 {len(satellites)}, 성운 {len(communities)}"
+        f"{OUT.relative_to(ROOT)}: 별 {len(posts)}, 연결 {len(links)}, 행성 {len(planets)}, 성단 {len(communities)}"
     )
 
 

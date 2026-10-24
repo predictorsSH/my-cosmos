@@ -18,13 +18,13 @@ const counts = Object.fromEntries(
     <svg class="map" role="img" aria-label="비슷한 글끼리 모여 있는 별 지도"><defs></defs></svg>
     <div class="brand">
       <h1>my-cosmos</h1>
-      <p>글은 별, 인용한 자료는 위성이에요</p>
+      <p>글은 별, 인용한 자료는 행성이에요</p>
     </div>
     <div class="legend">
       <span><i style="--c: var(--DataScience)"></i>DataScience</span>
       <span><i style="--c: var(--Book)"></i>Book</span>
       <span><i style="--c: var(--Life)"></i>Life</span>
-      <span><i class="sat-dot"></i>인용한 자료</span>
+      <span><i class="planet-dot"></i>인용한 자료</span>
     </div>
   </section>
 
@@ -144,7 +144,7 @@ const counts = Object.fromEntries(
     box-shadow: 0 0 8px var(--c);
   }
 
-  .legend .sat-dot {
+  .legend .planet-dot {
     width: 5px;
     height: 5px;
     --c: #cfe3ff;
@@ -274,7 +274,7 @@ const counts = Object.fromEntries(
 </style>
 
 <style is:global>
-  /* 별, 위성: d3가 만든 SVG 요소라 전역 스타일 */
+  /* 별, 행성: d3가 만든 SVG 요소라 전역 스타일 */
   .cosmos .star {
     cursor: pointer;
     transition: opacity 0.25s;
@@ -294,7 +294,7 @@ const counts = Object.fromEntries(
     opacity: 0.55;
   }
   .cosmos .star text,
-  .cosmos .sat text {
+  .cosmos .planet text {
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.2s;
@@ -307,19 +307,19 @@ const counts = Object.fromEntries(
     font-size: 11px;
     font-weight: 500;
   }
-  .cosmos .sat {
+  .cosmos .planet {
     cursor: pointer;
     transition: opacity 0.25s;
   }
-  .cosmos .sat .dot {
+  .cosmos .planet .dot {
     fill: #cfe3ff;
   }
-  .cosmos .sat text {
+  .cosmos .planet text {
     fill: #8a93a8;
     font-size: 9.5px;
   }
   .cosmos .star.show text,
-  .cosmos .sat.show text {
+  .cosmos .planet.show text {
     opacity: 1;
   }
   .cosmos .orbit {
@@ -335,19 +335,19 @@ const counts = Object.fromEntries(
   .cosmos .link.hl {
     stroke-opacity: 0.7;
   }
-  .cosmos .sat-link {
+  .cosmos .planet-link {
     stroke: #cfe3ff;
     stroke-opacity: 0;
     stroke-dasharray: 2 3;
     transition: stroke-opacity 0.25s;
   }
-  .cosmos .sat-link.hl {
+  .cosmos .planet-link.hl {
     stroke-opacity: 0.45;
   }
   .cosmos .dim .star:not(.show) {
     opacity: 0.28;
   }
-  .cosmos .dim .sat:not(.show) {
+  .cosmos .dim .planet:not(.show) {
     opacity: 0.15;
   }
   @keyframes cosmos-twinkle {

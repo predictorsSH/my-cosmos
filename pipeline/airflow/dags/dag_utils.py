@@ -2,7 +2,7 @@ import subprocess
 
 REPO = "predictorsSH/my-cosmos"
 PR_BRANCH = "bot/cosmos-map"
-OUTPUTS = ["src/data/cosmos.json", "pipeline/cosmos/satellite-titles.json"]
+OUTPUTS = ["src/data/cosmos.json", "pipeline/cosmos/planet-titles.json"]
 
 
 def _git(work_dir: str, *args: str) -> str:

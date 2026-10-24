@@ -47,7 +47,7 @@ uv run --project pipeline pipeline/cosmos/build.py
 ```
 
 - 처음 실행할 때 임베딩 모델(BAAI/bge-m3, 약 2GB)을 내려받는다.
-- 인용 링크의 제목은 `pipeline/cosmos/satellite-titles.json`에 캐시된다.
+- 인용 링크의 제목은 `pipeline/cosmos/planet-titles.json`에 캐시된다.
 
 ## 👀 Want to learn more?
 
