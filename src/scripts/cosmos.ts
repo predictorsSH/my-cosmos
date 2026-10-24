@@ -12,10 +12,10 @@ interface Star extends d3.SimulationNodeDatum {
   cluster: number;
   neighbors: { id: string; sim: number }[];
   r: number;
-  sats: Satellite[];
+  planets: Planet[];
 }
 
-interface Satellite {
+interface Planet {
   id: string;
   title: string;
   kind: 'paper' | 'video' | 'dataset' | 'docs' | 'article';
@@ -34,8 +34,8 @@ interface Link extends d3.SimulationLinkDatum<Star> {
 }
 
 const CAT_COLOR: Record<Category, string> = { DataScience: '#8fb3ff', Book: '#ffc98a', Life: '#ff9ccf' };
-const NEBULA = ['#5b7cff', '#9a6bff', '#3fb6c9', '#ff7aa8', '#6fd1a0', '#ffb36b', '#7f8cff', '#c77dff'];
-const SAT_KIND = { paper: '논문', video: '영상', dataset: '데이터셋', docs: '문서', article: '아티클' };
+const CLUSTER_COLORS = ['#5b7cff', '#9a6bff', '#3fb6c9', '#ff7aa8', '#6fd1a0', '#ffb36b', '#7f8cff', '#c77dff'];
+const PLANET_KIND = { paper: '논문', video: '영상', dataset: '데이터셋', docs: '문서', article: '아티클' };
 const DESKTOP = '(min-width: 861px)';
 
 const escape = (s: string) =>
@@ -48,7 +48,7 @@ export function initCosmos(el: HTMLElement) {
   const stars = structuredClone(cosmos.stars) as Star[];
   const byId = new Map(stars.map((s) => [s.id, s]));
   const links = cosmos.links.map((l) => ({ ...l })) as unknown as Link[];
-  const satellites = (cosmos.satellites as Omit<Satellite, 'angle' | 'speed' | 'x' | 'y'>[])
+  const planets = (cosmos.planets as Omit<Planet, 'angle' | 'speed' | 'x' | 'y'>[])
     .map((s) => ({ ...s, parents: s.parents.filter((p) => byId.has(p)) }))
     .filter((s) => s.parents.length > 0)
     .map((s) => ({
@@ -57,7 +57,7 @@ export function initCosmos(el: HTMLElement) {
       speed: (Math.random() * 0.5 + 0.5) * (Math.random() < 0.5 ? -1 : 1) * 0.00018,
       x: 0,
       y: 0,
-    })) as Satellite[];
+    })) as Planet[];
 
   const [smin, smax] = d3.extent(links, (l) => l.sim) as [number, number];
   const norm = (s: number) => (s - smin) / (smax - smin || 1);
@@ -67,11 +67,11 @@ export function initCosmos(el: HTMLElement) {
     .range([3.2, 7]);
   stars.forEach((d) => {
     d.r = lenScale(d.length);
-    d.sats = [];
+    d.planets = [];
   });
-  satellites.forEach((s) => s.parents.forEach((p) => byId.get(p)!.sats.push(s)));
+  planets.forEach((s) => s.parents.forEach((p) => byId.get(p)!.planets.push(s)));
   stars.forEach((d) =>
-    d.sats
+    d.planets
       .filter((s) => s.parents.length === 1)
       .forEach((s, i) => (s.orbit = d.r * 3 + 10 + i * 7)),
   );
@@ -133,21 +133,21 @@ export function initCosmos(el: HTMLElement) {
       [1, c, 0],
     ]),
   );
-  NEBULA.forEach((c, i) =>
-    radial(`neb-${i}`, [
+  CLUSTER_COLORS.forEach((c, i) =>
+    radial(`cluster-${i}`, [
       [0, c, 0.16],
       [0.5, c, 0.06],
       [1, c, 0],
     ]),
   );
-  radial('sat-glow', [
+  radial('planet-glow', [
     [0, '#e6f0ff', 0.9],
     [0.4, '#9fc2ff', 0.25],
     [1, '#9fc2ff', 0],
   ]);
   defs
     .append('filter')
-    .attr('id', 'nebula-blur')
+    .attr('id', 'cluster-blur')
     .attr('x', '-50%')
     .attr('y', '-50%')
     .attr('width', '200%')
@@ -166,11 +166,11 @@ export function initCosmos(el: HTMLElement) {
   svg.call(zoom);
 
   /* ---------- 레이어 ---------- */
-  const nebulaLayer = root.append('g').attr('filter', 'url(#nebula-blur)');
+  const clusterLayer = root.append('g').attr('filter', 'url(#cluster-blur)');
   const orbitLayer = root.append('g');
   const linkLayer = root.append('g');
-  const satLinkLayer = root.append('g');
-  const satLayer = root.append('g');
+  const planetLinkLayer = root.append('g');
+  const planetLayer = root.append('g');
   const starLayer = root.append('g');
 
   const link = linkLayer
@@ -180,23 +180,23 @@ export function initCosmos(el: HTMLElement) {
     .attr('class', 'link')
     .attr('stroke-width', (l) => 0.6 + norm(l.sim) * 1.6);
 
-  const satLinks = satellites.flatMap((s) => s.parents.map((p) => ({ s, p: byId.get(p)! })));
-  const satLink = satLinkLayer.selectAll('line').data(satLinks).join('line').attr('class', 'sat-link');
+  const planetLinks = planets.flatMap((s) => s.parents.map((p) => ({ s, p: byId.get(p)! })));
+  const planetLink = planetLinkLayer.selectAll('line').data(planetLinks).join('line').attr('class', 'planet-link');
 
   const orbit = orbitLayer
     .selectAll('circle')
-    .data(satellites.filter((s) => s.orbit))
+    .data(planets.filter((s) => s.orbit))
     .join('circle')
     .attr('class', 'orbit')
     .attr('r', (s) => s.orbit!);
 
-  const sat = satLayer.selectAll('g').data(satellites).join('g').attr('class', 'sat');
-  sat.append('circle').attr('r', 7).style('fill', 'url(#sat-glow)');
-  sat
+  const planet = planetLayer.selectAll('g').data(planets).join('g').attr('class', 'planet');
+  planet.append('circle').attr('r', 7).style('fill', 'url(#planet-glow)');
+  planet
     .append('circle')
     .attr('class', 'dot')
     .attr('r', (s) => (s.kind === 'paper' ? 1.8 : 1.2));
-  sat
+  planet
     .append('text')
     .attr('x', 6)
     .attr('y', 3)
@@ -245,7 +245,7 @@ export function initCosmos(el: HTMLElement) {
     .force(
       'collide',
       d3.forceCollide<Star>(
-        (d) => d.r * 3 + 24 + d.sats.filter((s) => s.parents.length === 1).length * 7,
+        (d) => d.r * 3 + 24 + d.planets.filter((s) => s.parents.length === 1).length * 7,
       ),
     )
     .force('x', d3.forceX().strength(0.035))
@@ -253,18 +253,18 @@ export function initCosmos(el: HTMLElement) {
     .stop();
   sim.tick(500);
 
-  // 성운: 군집별 중심과 퍼짐
+  // 성단: 군집별 중심과 퍼짐
   const clusters = d3
     .groups(stars, (d) => d.cluster)
     .filter(([, ns]) => ns.length > 1)
     .map(([c, ns]) => ({ c, ns }));
-  const nebula = nebulaLayer
+  const clusterGlow = clusterLayer
     .selectAll('circle')
     .data(clusters)
     .join('circle')
-    .attr('fill', (c) => `url(#neb-${c.c % NEBULA.length})`);
+    .attr('fill', (c) => `url(#cluster-${c.c % CLUSTER_COLORS.length})`);
 
-  function satPos(s: Satellite, t: number): [number, number] {
+  function planetPos(s: Planet, t: number): [number, number] {
     if (s.parents.length === 1) {
       const p = byId.get(s.parents[0])!;
       const a = s.angle + t * s.speed;
@@ -279,7 +279,7 @@ export function initCosmos(el: HTMLElement) {
   }
 
   function render(t: number) {
-    nebula.each(function (c) {
+    clusterGlow.each(function (c) {
       const cx = d3.mean(c.ns, (d) => d.x)!;
       const cy = d3.mean(c.ns, (d) => d.y)!;
       const spread = d3.max(c.ns, (d) => Math.hypot(d.x! - cx, d.y! - cy)) ?? 40;
@@ -294,9 +294,9 @@ export function initCosmos(el: HTMLElement) {
     orbit
       .attr('cx', (s) => byId.get(s.parents[0])!.x!)
       .attr('cy', (s) => byId.get(s.parents[0])!.y!);
-    satellites.forEach((s) => ([s.x, s.y] = satPos(s, t)));
-    sat.attr('transform', (s) => `translate(${s.x},${s.y})`);
-    satLink
+    planets.forEach((s) => ([s.x, s.y] = planetPos(s, t)));
+    planet.attr('transform', (s) => `translate(${s.x},${s.y})`);
+    planetLink
       .attr('x1', (l) => l.s.x)
       .attr('y1', (l) => l.s.y)
       .attr('x2', (l) => l.p.x!)
@@ -364,17 +364,17 @@ export function initCosmos(el: HTMLElement) {
       const filtering = category !== 'all';
       root.classed('dim', filtering);
       star.classed('show', false).style('opacity', (n) => (filtering && n.category !== category ? 0.12 : null));
-      sat.classed('show', false);
+      planet.classed('show', false);
       link.classed('hl', false);
-      satLink.classed('hl', false);
+      planetLink.classed('hl', false);
       return;
     }
     const ids = new Set([d.id, ...d.neighbors.map((n) => n.id)]);
     root.classed('dim', true);
     star.classed('show', (n) => ids.has(n.id)).style('opacity', null);
-    sat.classed('show', (s) => s.parents.includes(d.id));
+    planet.classed('show', (s) => s.parents.includes(d.id));
     link.classed('hl', (l) => l.source.id === d.id || l.target.id === d.id);
-    satLink.classed('hl', (l) => l.p.id === d.id);
+    planetLink.classed('hl', (l) => l.p.id === d.id);
   }
 
   star
@@ -384,7 +384,7 @@ export function initCosmos(el: HTMLElement) {
       e.stopPropagation();
       select(d.id);
     });
-  sat
+  planet
     .on('mouseenter', function () {
       d3.select(this).classed('show', true);
     })
@@ -427,13 +427,13 @@ export function initCosmos(el: HTMLElement) {
                <span>${escape(byId.get(n.id)!.title)}</span><b>${n.sim.toFixed(2)}</b></a>`,
         )
         .join('') +
-      (d.sats.length
+      (d.planets.length
         ? `<h3>인용한 자료</h3>` +
-          d.sats
+          d.planets
             .map(
               (s) =>
                 `<a class="row" href="${escape(s.id)}" target="_blank" rel="noopener">
-                   <span>${escape(s.title)}</span><small>${SAT_KIND[s.kind]}</small></a>`,
+                   <span>${escape(s.title)}</span><small>${PLANET_KIND[s.kind]}</small></a>`,
             )
             .join('')
         : '');
