@@ -38,8 +38,8 @@
      "sim": 0.526
     },
     {
-     "id": "life-post-goodbye-2023",
-     "sim": 0.488
+     "id": "datascience-post-vectorization",
+     "sim": 0.469
     }
    ],
    "cluster": 3
@@ -52,16 +52,16 @@
    "length": 4622,
    "neighbors": [
     {
-     "id": "life-post-goodbye-2023",
-     "sim": 0.652
-    },
-    {
      "id": "book-post-2",
      "sim": 0.635
     },
     {
      "id": "book-post-5",
      "sim": 0.611
+    },
+    {
+     "id": "book-post-4",
+     "sim": 0.551
     }
    ],
    "cluster": 3
@@ -152,7 +152,7 @@
      "sim": 0.646
     }
    ],
-   "cluster": 1
+   "cluster": 2
   },
   {
    "id": "datascience-post-adp-2",
@@ -174,7 +174,7 @@
      "sim": 0.635
     }
    ],
-   "cluster": 1
+   "cluster": 2
   },
   {
    "id": "datascience-post-adp-3",
@@ -196,7 +196,7 @@
      "sim": 0.68
     }
    ],
-   "cluster": 1
+   "cluster": 2
   },
   {
    "id": "datascience-post-adp-4",
@@ -218,7 +218,7 @@
      "sim": 0.657
     }
    ],
-   "cluster": 1
+   "cluster": 2
   },
   {
    "id": "datascience-post-adp-5",
@@ -240,7 +240,7 @@
      "sim": 0.643
     }
    ],
-   "cluster": 1
+   "cluster": 2
   },
   {
    "id": "datascience-post-an-introduce-to-roc",
@@ -306,7 +306,7 @@
      "sim": 0.514
     }
    ],
-   "cluster": 2
+   "cluster": 1
   },
   {
    "id": "datascience-post-better-code-2",
@@ -328,7 +328,7 @@
      "sim": 0.528
     }
    ],
-   "cluster": 2
+   "cluster": 1
   },
   {
    "id": "datascience-post-bigquery",
@@ -338,41 +338,41 @@
    "length": 9597,
    "neighbors": [
     {
-     "id": "datascience-post-cicd",
-     "sim": 0.557
-    },
-    {
      "id": "datascience-post-vectorization",
      "sim": 0.533
     },
     {
      "id": "datascience-post-better-code-2",
      "sim": 0.528
+    },
+    {
+     "id": "datascience-post-cicd",
+     "sim": 0.517
     }
    ],
-   "cluster": 2
+   "cluster": 1
   },
   {
    "id": "datascience-post-cicd",
    "title": "간단한 CI 파이프라인 실습",
    "category": "DataScience",
    "excerpt": "TeamCity로 Continuous Integration 파이프라인 실습",
-   "length": 6138,
+   "length": 5414,
    "neighbors": [
     {
      "id": "datascience-post-docker-jupyterlab",
-     "sim": 0.667
+     "sim": 0.687
     },
     {
-     "id": "life-post-goodbye-2023",
-     "sim": 0.568
+     "id": "datascience-post-patchcore",
+     "sim": 0.526
     },
     {
      "id": "datascience-post-bigquery",
-     "sim": 0.557
+     "sim": 0.517
     }
    ],
-   "cluster": 2
+   "cluster": 4
   },
   {
    "id": "datascience-post-crossentropy",
@@ -394,7 +394,7 @@
      "sim": 0.526
     }
    ],
-   "cluster": 4
+   "cluster": 0
   },
   {
    "id": "datascience-post-dacon-daegu-traffic-eda",
@@ -416,7 +416,7 @@
      "sim": 0.466
     }
    ],
-   "cluster": 0
+   "cluster": 5
   },
   {
    "id": "datascience-post-docker-jupyterlab",
@@ -427,7 +427,7 @@
    "neighbors": [
     {
      "id": "datascience-post-cicd",
-     "sim": 0.667
+     "sim": 0.687
     },
     {
      "id": "datascience-post-patchcore",
@@ -438,7 +438,7 @@
      "sim": 0.514
     }
    ],
-   "cluster": 2
+   "cluster": 4
   },
   {
    "id": "datascience-post-factory-planning",
@@ -526,7 +526,7 @@
      "sim": 0.488
     }
    ],
-   "cluster": 1
+   "cluster": 2
   },
   {
    "id": "datascience-post-patchcore",
@@ -570,7 +570,7 @@
      "sim": 0.571
     }
    ],
-   "cluster": 2
+   "cluster": 1
   },
   {
    "id": "datascience-post-regression-corr",
@@ -592,7 +592,7 @@
      "sim": 0.548
     }
    ],
-   "cluster": 1
+   "cluster": 2
   },
   {
    "id": "datascience-post-single-machine-scheduling",
@@ -636,7 +636,7 @@
      "sim": 0.522
     }
    ],
-   "cluster": 0
+   "cluster": 5
   },
   {
    "id": "datascience-post-time-series-anomaly-detection-ae",
@@ -680,7 +680,7 @@
      "sim": 0.575
     }
    ],
-   "cluster": 0
+   "cluster": 1
   },
   {
    "id": "datascience-post-vectorization",
@@ -702,7 +702,7 @@
      "sim": 0.557
     }
    ],
-   "cluster": 2
+   "cluster": 1
   },
   {
    "id": "datascience-post-weight-initualize",
@@ -746,29 +746,7 @@
      "sim": 0.582
     }
    ],
-   "cluster": 0
-  },
-  {
-   "id": "life-post-goodbye-2023",
-   "title": "Goodbye 2023, Welcome 2024",
-   "category": "Life",
-   "excerpt": "일상 속에서 발견한 작은 이야기들을 기록합니다.",
-   "length": 5731,
-   "neighbors": [
-    {
-     "id": "book-post-3",
-     "sim": 0.652
-    },
-    {
-     "id": "datascience-post-cicd",
-     "sim": 0.568
-    },
-    {
-     "id": "book-post-5",
-     "sim": 0.518
-    }
-   ],
-   "cluster": 3
+   "cluster": 1
   }
  ],
  "links": [
@@ -799,13 +777,8 @@
   },
   {
    "source": "book-post-2",
-   "target": "life-post-goodbye-2023",
-   "sim": 0.488
-  },
-  {
-   "source": "book-post-3",
-   "target": "life-post-goodbye-2023",
-   "sim": 0.652
+   "target": "datascience-post-vectorization",
+   "sim": 0.469
   },
   {
    "source": "book-post-3",
@@ -944,23 +917,23 @@
   },
   {
    "source": "datascience-post-bigquery",
-   "target": "datascience-post-cicd",
-   "sim": 0.557
-  },
-  {
-   "source": "datascience-post-bigquery",
    "target": "datascience-post-vectorization",
    "sim": 0.533
   },
   {
-   "source": "datascience-post-cicd",
-   "target": "datascience-post-docker-jupyterlab",
-   "sim": 0.667
+   "source": "datascience-post-bigquery",
+   "target": "datascience-post-cicd",
+   "sim": 0.517
   },
   {
    "source": "datascience-post-cicd",
-   "target": "life-post-goodbye-2023",
-   "sim": 0.568
+   "target": "datascience-post-docker-jupyterlab",
+   "sim": 0.687
+  },
+  {
+   "source": "datascience-post-cicd",
+   "target": "datascience-post-patchcore",
+   "sim": 0.526
   },
   {
    "source": "datascience-post-VAE",
@@ -1136,11 +1109,6 @@
    "source": "datascience-post-an-introduce-to-roc",
    "target": "datascience-post-weight-initualize",
    "sim": 0.506
-  },
-  {
-   "source": "book-post-5",
-   "target": "life-post-goodbye-2023",
-   "sim": 0.518
   }
  ],
  "planets": [
