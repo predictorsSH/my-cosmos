@@ -230,7 +230,14 @@ export function initCosmos(el: HTMLElement) {
     .attr('y', 4)
     .text((d) => d.title);
 
-  /* ---------- 배치: 별끼리 넉넉한 간격 ---------- */
+  /* ---------- 배치: 성단별 중심으로 모으기 ---------- */
+  // 성단 중심을 원 위에 고르게 놓고, 별은 자기 성단 중심으로 당긴다
+  const nClusters = d3.max(stars, (d) => d.cluster)! + 1;
+  const CLUSTER_RADIUS = 260;
+  const clusterX = (c: number) => CLUSTER_RADIUS * Math.cos((2 * Math.PI * c) / nClusters);
+  const clusterY = (c: number) => CLUSTER_RADIUS * Math.sin((2 * Math.PI * c) / nClusters);
+  const sameCluster = (l: Link) => l.source.cluster === l.target.cluster;
+
   const sim = d3
     .forceSimulation(stars)
     .force(
@@ -238,18 +245,18 @@ export function initCosmos(el: HTMLElement) {
       d3
         .forceLink<Star, Link>(links)
         .id((d) => d.id)
-        .distance((l) => 190 - norm(l.sim) * 120)
-        .strength((l) => 0.15 + norm(l.sim) * 0.7),
+        .distance((l) => (sameCluster(l) ? 60 : 200))
+        .strength((l) => (sameCluster(l) ? 0.6 : 0.05)),
     )
-    .force('charge', d3.forceManyBody().strength(-380))
+    .force('charge', d3.forceManyBody().strength(-180))
     .force(
       'collide',
       d3.forceCollide<Star>(
         (d) => d.r * 3 + 24 + d.planets.filter((s) => s.parents.length === 1).length * 7,
       ),
     )
-    .force('x', d3.forceX().strength(0.035))
-    .force('y', d3.forceY().strength(0.035))
+    .force('x', d3.forceX<Star>((d) => clusterX(d.cluster)).strength(0.12))
+    .force('y', d3.forceY<Star>((d) => clusterY(d.cluster)).strength(0.12))
     .stop();
   sim.tick(500);
 
